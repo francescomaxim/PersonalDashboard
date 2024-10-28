@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   
@@ -32,6 +33,25 @@
             <div class="add-event">
                 <input type="text" id="event-input" placeholder="Add a new event or to-do">
                 <button onclick="addEvent()">Add</button>
+            </div>
+        </section>
+
+        <!-- Random Quote of The Day Section -->
+        <section class="card quote-section" id="quote">
+            <h2>Quote Of The Day</h2>
+            <div class="content">
+                <div class="quote-area">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="quote-text">Press button for your quote</p> 
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="author">
+                    <span> - </span>
+                    <span class="name"></span>
+                </div>
+            </div>
+            <div class="quote-button">
+                <button onclick="randomQuote()">New Quote</button>
             </div>
         </section>
 
