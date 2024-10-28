@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Three columns */
+    grid-template-rows: repeat(3.5, 1fr); /* Two equal-height rows */
+    grid-template-areas: 
+        "weather weather weather events"
+        "weather weather weather events"
+        "currency currency news news" 
+        "currency currency news news";
+    gap: 0px 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    height: 650px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather card spanning two columns and two rows */
+.weather {
+    grid-area: weather;
+    background-color: #e7f0ff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.events {
+    grid-area: events;
+    background-color: #c2d0dd;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.currency {
+    grid-area: currency;
+    background-color: #e7f0ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.news {
+    grid-area: news;
+    background-color: #c2d0dd;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #c2d0dd;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #00509e;
+    margin-bottom: 10px;
+}
+
+
+#event-list {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.add-event input {
+    padding: 8px;
+    width: 70%;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #00509e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003f7d;
+}

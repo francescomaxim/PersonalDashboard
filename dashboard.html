@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  
+    <div class="container">
+        <!-- Weather Section -->
+        <section class="card weather" id="weather">
+            <h2>Weather</h2>
+            <div id="weather-info">
+                <p>Loading weather...</p>
+            </div>
+        </section>
+
+        <!-- Currency Section -->
+        <section class="card currency" id="currency">
+            <h2>Currency Exchange Rates</h2>
+            <div id="currency-info">
+                <p>Loading exchange rates...</p>
+            </div>
+        </section>
+
+        <!-- Events + To-Dos Section -->
+        <section class="card events" id="events">
+            <h2>My Events + To-Dos</h2>
+            <ul id="event-list"></ul>
+            <div class="add-event">
+                <input type="text" id="event-input" placeholder="Add a new event or to-do">
+                <button onclick="addEvent()">Add</button>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="card news" id="news">
+            <h2>Top News</h2>
+            <div id="news-info">
+                <p>Loading news...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
