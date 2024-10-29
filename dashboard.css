@@ -82,6 +82,7 @@ body {
     align-items: center;
 }
 
+
 .card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
@@ -165,4 +166,41 @@ button:hover {
 
 .news-link:hover {
     text-decoration: underline;
+}
+
+.content .quote-area {
+    display: flex;
+    justify-content: center;
+}
+
+.quote-area .quote {
+    font-size: 20px;
+    text-align: center;
+}
+
+.quote-area i {
+    font-size: 10px;
+}
+
+.quote-area i:first-child {
+    margin: 3px 10px 0 0;
+}
+
+.quote-area i:last-child {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 0 3px 10px;
+}
+
+
+.content .author {
+    display: flex;
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.quote-button {
+    margin-top: 10px;
 }

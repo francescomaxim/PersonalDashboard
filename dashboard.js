@@ -105,3 +105,41 @@ function displayNews(articles) {
 
 fetchNews();
 
+// Quote
+
+document.addEventListener("DOMContentLoaded", () => {
+    const quoteText = document.querySelector(".quote-text"), 
+        authorName = document.querySelector(".author .name"),
+        quoteBtn = document.querySelector(".quote-button button");
+
+    function randomQuote() {
+        quoteBtn.classList.add("loading");
+        quoteBtn.innerText = "Loading Quote...";
+
+        fetch("https://api.quotable.io/random")
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                quoteText.innerText = result.content;
+                authorName.innerText = result.author;
+                quoteBtn.innerText = "New Quote";
+                quoteBtn.classList.remove("loading");
+            })
+            .catch(error => {
+                console.error("Error fetching quote:", error);
+                quoteBtn.innerText = "Try Again";
+                quoteBtn.classList.remove("loading");
+            });
+    }
+
+    quoteBtn.addEventListener("click", randomQuote);
+});
+
+
+
+
+
+
+
+
+
