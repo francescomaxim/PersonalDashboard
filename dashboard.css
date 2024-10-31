@@ -29,24 +29,25 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Three columns */
-    grid-template-rows: repeat(3.5, 1fr); /* Two equal-height rows */
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: 2fr 2fr 1fr 1fr; 
     grid-template-areas: 
         "weather weather weather events"
         "weather weather weather events"
-        "currency currency news news" 
-        "currency currency news news";
+        "currency quote news news" 
+        "currency quote news news"; 
     gap: 0px 10px;
     padding: 20px;
     width: 100%;
     max-width: 1200px;
-    height: 650px;
+    height: 650px; 
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Weather card spanning two columns and two rows */
+
+
 .weather {
     grid-area: weather;
     background-color: #e7f0ff;
@@ -67,19 +68,79 @@ body {
 
 .currency {
     grid-area: currency;
-    background-color: #e7f0ff;
+    background-color: #cbd4e3;
     padding: 20px;
     border-radius: 10px;
+    max-height: 250px;
+}
+
+#scrollingText {
+    font-size: 1em;
+    color: #333;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 .news {
     grid-area: news;
     background-color: #c2d0dd;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
+    height: 250px; 
+    overflow-y: auto; 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    scrollbar-width: thin;
+    scrollbar-color: #000 transparent; 
+}
+
+.news-item {
+    padding: 10px;
+    height: 150px; 
+    overflow: hidden; 
+}
+
+.news::-webkit-scrollbar {
+    width: 8px;
+}
+.news::-webkit-scrollbar-thumb {
+    background-color: #000; 
+    border-radius: 4px;
+}
+
+
+.news-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.news-description {
+    font-size: 14px;
+    color: #555;
+}
+
+.news-link {
+    font-size: 12px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.news-link:hover {
+    text-decoration: underline;
 }
 
 
@@ -89,19 +150,14 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    color: white;
-    background-color: #c2d0dd;
+    color: rgba(51, 47, 47, 0.779);
+    background-color: #d7e9f8;
     font-size: 1.2em;
     font-weight: bold;
     transition: transform 0.3s ease;
 }
-
-.card:hover {
-    transform: scale(1.05);
-}
-
 
 
 section {
@@ -109,7 +165,7 @@ section {
 }
 
 h2 {
-    color: #00509e;
+    color: #1577d9;
     margin-bottom: 10px;
 }
 
@@ -168,6 +224,21 @@ button:hover {
     text-decoration: underline;
 }
 
+<<<<<<< Updated upstream
+=======
+.quote-section {
+    grid-area: quote;
+    background-color: #f7e6d4; 
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+>>>>>>> Stashed changes
 .content .quote-area {
     display: flex;
     justify-content: center;
@@ -203,4 +274,8 @@ button:hover {
 
 .quote-button {
     margin-top: 10px;
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
