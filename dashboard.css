@@ -224,8 +224,6 @@ button:hover {
     text-decoration: underline;
 }
 
-<<<<<<< Updated upstream
-=======
 .quote-section {
     grid-area: quote;
     background-color: #f7e6d4; 
@@ -237,8 +235,6 @@ button:hover {
     align-items: center;
 }
 
-
->>>>>>> Stashed changes
 .content .quote-area {
     display: flex;
     justify-content: center;
@@ -263,7 +259,6 @@ button:hover {
     margin: 0 0 3px 10px;
 }
 
-
 .content .author {
     display: flex;
     font-size: 13px;
@@ -274,8 +269,4 @@ button:hover {
 
 .quote-button {
     margin-top: 10px;
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
