@@ -1,0 +1,40 @@
+{
+  "en": {
+      "title": "My Personal Dashboard",
+      "weather-title": "Weather",
+      "loading-weather": "Loading weather...",
+      "currency-title": "Currency Exchange Rates",
+      "events-title": "My Events + To-Dos",
+      "event-input-placeholder": "Add a new event or to-do",
+      "add-event-button": "Add",
+      "quote-title": "Quote Of The Day",
+      "quote-text": "Press button for your quote",
+      "quote-button": "New Quote",
+      "news-title": "Top News",
+      "news-title-1": "News Headline 1",
+      "news-desc-1": "Brief description of news 1.",
+      "news-title-2": "News Headline 2",
+      "news-desc-2": "Brief description of news 2.",
+      "news-title-3": "News Headline 3",
+      "news-desc-3": "Brief description of news 3."
+  },
+  "ro": {
+      "title": "Tabloul Meu de Bord",
+      "weather-title": "Vremea",
+      "loading-weather": "Se încarcă informațiile meteo...",
+      "currency-title": "Curs Valutar",
+      "events-title": "Evenimentele și To-Do-urile Mele",
+      "event-input-placeholder": "Adăugați un eveniment sau o sarcină",
+      "add-event-button": "Adaugă",
+      "quote-title": "Citatul Zilei",
+      "quote-text": "Apăsați butonul pentru un citat",
+      "quote-button": "Citat Nou",
+      "news-title": "Știri de Top",
+      "news-title-1": "Titlul Știrii 1",
+      "news-desc-1": "Descriere scurtă a știrii 1.",
+      "news-title-2": "Titlul Știrii 2",
+      "news-desc-2": "Descriere scurtă a știrii 2.",
+      "news-title-3": "Titlul Știrii 3",
+      "news-desc-3": "Descriere scurtă a știrii 3."
+  }
+}
