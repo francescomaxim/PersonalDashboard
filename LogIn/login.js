@@ -1,19 +1,21 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import {
-  getDatabase,
-  ref,
-  push,
-  onValue,
-  remove,
-} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+// import {
+//   getDatabase,
+//   ref,
+//   push,
+//   onValue,
+//   remove,
+// } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-const appSetting = {
-  databaseURL:
-    "https://personaldashboard-773bd-default-rtdb.europe-west1.firebasedatabase.app/",
-};
+// const appSetting = {
+//   databaseURL:
+//     "https://personaldashboard-773bd-default-rtdb.europe-west1.firebasedatabase.app/",
+// };
 
-const app = initializeApp(appSetting);
-const database = getDatabase(app);
+// const app = initializeApp(appSetting);
+// const database = getDatabase(app);
+
+import * as database from "../CRUD/crud.js";
 
 const myHeader = document.getElementById("myHeader");
 const myInput = document.getElementById("myInput");
@@ -27,6 +29,7 @@ let userHash;
 let userInDatabase;
 let userExist;
 let pass;
+let username;
 
 myButton.addEventListener("click", () => {
   resetError();
@@ -34,36 +37,30 @@ myButton.addEventListener("click", () => {
     if (myInput.value.length <= 2) {
       errorMessage("username");
     } else {
+      username = myInput.value;
       goToEmail();
       counter++;
     }
   } else {
     if (counter === 1) {
-      const user = myInput.value;
-      const isValid = validateEmail(user);
-      if (isValid) {
-        userHash = parseUser(user);
-        verifyUserExist(userHash);
-        counter++;
-      } else {
-        errorMessage("email");
-      }
+      userHash = parseUser(myInput.value);
+      database.existing(userHash);
+      goToPassword("Enter");
+      counter++;
     } else {
       if (counter === 2) {
         if (myInput.value.length < 4) {
           errorMessage("password");
         } else {
-          if (userExist != 1) {
-            let smt = ref(database, `${userHash}/password`);
-            push(smt, myInput.value);
-            goIn();
-          } else {
-            let ok = validatePassword(userHash, myInput.value);
-            if (!ok) {
-              wrongPass();
+          if (database.existing(userHash)) {
+            let passing = database.passing(userHash);
+            if (passing == myInput.value) {
+              goIn(passing);
             } else {
-              goIn();
+              wrongPass();
             }
+          } else {
+            database.createUser(userHash, username, myInput.value);
           }
         }
       }
@@ -76,13 +73,14 @@ function wrongPass() {
   mySmall.style.color = "red";
 }
 
-function goIn() {
-  saveLogInToLocalStorage(userHash);
-  window.location.href = "./../dashboard.html";
+function goIn(pass) {
+  saveLogInToLocalStorage(userHash, pass);
+  window.location.href = "./../index.html";
 }
 
-function saveLogInToLocalStorage(user) {
+function saveLogInToLocalStorage(user, pass) {
   localStorage.setItem("user", user);
+  localStorage.setItem("pass", pass);
 }
 
 function validatePassword(user, password) {
@@ -95,17 +93,17 @@ function validatePassword(user, password) {
 }
 
 function verifyUserExist(user) {
-  let message;
-  userInDatabase = ref(database, `${user}`);
-  onValue(userInDatabase, function (snapshot) {
-    if (snapshot.exists()) {
-      message = "Enter";
-      userExist = 1;
-    } else {
-      message = "Select";
-    }
-    goToPassword(message);
-  });
+  // let message;
+  // userInDatabase = ref(database, `${user}`);
+  // onValue(userInDatabase, function (snapshot) {
+  //   if (snapshot.exists()) {
+  //     message = "Enter";
+  //     userExist = 1;
+  //   } else {
+  //     message = "Select";
+  //   }
+  //   goToPassword(message);
+  // });
 }
 
 function getPass(user) {
