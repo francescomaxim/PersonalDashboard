@@ -1,8 +1,12 @@
 const myClock = document.getElementById("myClock");
+let myText;
 
 // Apelarea funcției
 getLocalTime()
-  .then((time) => (myClock.textContent = time))
+  .then((time) => {
+    updateGreeting();
+    myClock.textContent = time;
+  })
   .catch((error) => console.error(error));
 
 function getLocalTime() {
@@ -32,6 +36,16 @@ function getLocalTime() {
         const localTime = new Intl.DateTimeFormat("ro-RO", options).format(
           currentDate
         );
+        if (0 < currentDate.getHours()) {
+          myText = "Good morning";
+        }
+        if (12 < currentDate.getHours()) {
+          myText = "Good afternoon";
+        }
+        if (20 < currentDate.getHours()) {
+          myText = "Good evening";
+        }
+
         resolve(`${localTime}`);
       },
       (error) => {
@@ -39,4 +53,13 @@ function getLocalTime() {
       }
     );
   });
+}
+
+import * as database from "../CRUD/crud.js";
+
+let greeting = document.getElementById("greeting");
+
+function updateGreeting() {
+  greeting.textContent =
+    myText + ", " + window.localStorage.getItem("username") + ".";
 }
