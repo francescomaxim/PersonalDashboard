@@ -1,9 +1,32 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  onValue,
+  remove,
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+const appSetting = {
+  databaseURL:
+    "https://personaldashboard-773bd-default-rtdb.europe-west1.firebasedatabase.app/",
+};
+
+const app = initializeApp(appSetting);
+const database = getDatabase(app);
+
 const myHeader = document.getElementById("myHeader");
 const myInput = document.getElementById("myInput");
 const mySmall = document.getElementById("mySmall");
 const myButton = document.getElementById("myButton");
 
-counter = 0;
+let counter = 0;
+
+let pathOfUser;
+let userHash;
+let userInDatabase;
+let userExist;
+let pass;
 
 myButton.addEventListener("click", () => {
   resetError();
@@ -16,9 +39,11 @@ myButton.addEventListener("click", () => {
     }
   } else {
     if (counter === 1) {
-      isValid = validateEmail(myInput.value);
+      const user = myInput.value;
+      const isValid = validateEmail(user);
       if (isValid) {
-        goToPassword();
+        userHash = parseUser(user);
+        verifyUserExist(userHash);
         counter++;
       } else {
         errorMessage("email");
@@ -28,19 +53,67 @@ myButton.addEventListener("click", () => {
         if (myInput.value.length < 4) {
           errorMessage("password");
         } else {
-          //successfull
+          if (userExist != 1) {
+            let smt = ref(database, `${userHash}/password`);
+            push(smt, myInput.value);
+          } else {
+            validatePassword(userHash, myInput.value);
+          }
+          window.location.href = "./../dashboard.html";
         }
       }
     }
   }
 });
 
-function goToPassword() {
-  myHeader.innerHTML = `Enter your password`;
+function validatePassword(user, password) {
+  console.log(password);
+  getPass(userHash);
+  if (pass[1] == password) {
+    alert("Success");
+  } else {
+    alert("NOOOO");
+  }
+}
+
+function verifyUserExist(user) {
+  let message;
+  userInDatabase = ref(database, `${user}`);
+  onValue(userInDatabase, function (snapshot) {
+    if (snapshot.exists()) {
+      message = "Enter";
+      userExist = 1;
+    } else {
+      message = "Select";
+    }
+    goToPassword(message);
+  });
+}
+
+function getPass(user) {
+  let passwordPath = ref(database, `${user}/password`);
+  onValue(passwordPath, function (snapshot) {
+    if (snapshot.exists()) {
+      let password = Object.entries(snapshot.val());
+      password.forEach((value) => {
+        pass = value;
+      });
+    }
+  });
+}
+
+function parseUser(user) {
+  return user.replace(/[^a-zA-Z ]/g, "");
+}
+
+function goToPassword(message) {
+  myHeader.innerHTML = `${message} your password`;
   myInput.setAttribute("type", "password");
   myInput.value = "";
   mySmall.innerHTML = "";
 }
+
+function checkPassword(password) {}
 
 function goToEmail() {
   myHeader.innerHTML = `What's your email, ${myInput.value}?`;
