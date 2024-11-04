@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log In</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Styles/news.css" />
+  </head>
+  <body>
     <div class="main-content">
-        <h1 id="myClock">11:30</h1>
-        <h2 id="greeting"></h2>
-        <h3>What is your main goal for today?</h3>
-        <input id="myInput" type="text">
-        <div class="quote">
-            <small id="mySmall"></small>
-            <br>
-            <small id="mySmall2"></small>
-        </div>
+      <h1 id="myClock">11:30</h1>
+      <h2 id="greeting"></h2>
+      <h3>What is your main goal for today?</h3>
+      <input id="myInput" type="text" />
+      <div class="quote">
+        <small id="mySmall"></small>
+        <br />
+        <small id="mySmall2"></small>
+      </div>
+      <button onclick="on()">Turn on overlay</button>
     </div>
+
+    <div id="overlay" onclick="off()">
+      <section class="card news" id="news">
+        <h2 id="news-title">Top News</h2>
+        <div id="news-info">
+          <div class="news-item">
+            <p class="news-title" id="news-title-1">News Headline 1</p>
+            <p class="news-description" id="news-desc-1">
+              Brief description of news 1.
+            </p>
+          </div>
+          <div class="news-item">
+            <p class="news-title" id="news-title-2">News Headline 2</p>
+            <p class="news-description" id="news-desc-2">
+              Brief description of news 2.
+            </p>
+          </div>
+          <div class="news-item">
+            <p class="news-title" id="news-title-3">News Headline 3</p>
+            <p class="news-description" id="news-desc-3">
+              Brief description of news 3.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
 
     <script src="LogIn/verifyLogIn.js" type="module"></script>
     <script src="API's/quote.js" type="module"></script>
     <script src="script.js" type="module"></script>
     <script src="JsFiles/gettime.js" type="module"></script>
-</body>
+    <script src="API's/news.js"></script>
+  </body>
 </html>
