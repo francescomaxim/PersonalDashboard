@@ -77,7 +77,8 @@ button:hover {
   opacity: 1;
 }
 
-#overlay {
+#overlay1,
+#overlay2 {
   position: fixed;
   display: none;
   width: 100%;
@@ -104,5 +105,9 @@ button:hover {
 }
 
 #newsletters:hover {
+  cursor: pointer;
+}
+
+#weathers:hover {
   cursor: pointer;
 }
