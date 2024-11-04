@@ -3,7 +3,7 @@
   background-color: #c2d0dd;
   padding: 10px;
   border-radius: 10px;
-  height: 250px;
+  height: 100vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;

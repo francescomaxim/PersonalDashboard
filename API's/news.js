@@ -22,7 +22,7 @@ function displayNews(articles) {
   const newsContainer = document.getElementById("news-info");
   newsContainer.innerHTML = "";
 
-  articles.slice(0, 3).forEach((article) => {
+  articles.slice(0, 5).forEach((article) => {
     const newsItem = document.createElement("div");
     newsItem.classList.add("news-item");
 

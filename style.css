@@ -13,12 +13,13 @@ body {
 }
 
 .main-content {
+  margin: 2vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  height: 100vh;
+  height: 96vh;
 }
 
 .main-content > * {
@@ -87,5 +88,21 @@ button:hover {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
+  cursor: pointer;
+}
+
+.meniu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px;
+
+  position: fixed;
+  left: 0%;
+  width: 10%;
+  opacity: 1;
+}
+
+#newsletters:hover {
   cursor: pointer;
 }
