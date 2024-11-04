@@ -56,23 +56,41 @@ myButton.addEventListener("click", () => {
           if (userExist != 1) {
             let smt = ref(database, `${userHash}/password`);
             push(smt, myInput.value);
+            goIn();
           } else {
-            validatePassword(userHash, myInput.value);
+            let ok = validatePassword(userHash, myInput.value);
+            if (!ok) {
+              wrongPass();
+            } else {
+              goIn();
+            }
           }
-          window.location.href = "./../dashboard.html";
         }
       }
     }
   }
 });
 
+function wrongPass() {
+  mySmall.innerHTML = "Wrong password";
+  mySmall.style.color = "red";
+}
+
+function goIn() {
+  saveLogInToLocalStorage(userHash);
+  window.location.href = "./../dashboard.html";
+}
+
+function saveLogInToLocalStorage(user) {
+  localStorage.setItem("user", user);
+}
+
 function validatePassword(user, password) {
-  console.log(password);
   getPass(userHash);
   if (pass[1] == password) {
-    alert("Success");
+    return true;
   } else {
-    alert("NOOOO");
+    return false;
   }
 }
 
