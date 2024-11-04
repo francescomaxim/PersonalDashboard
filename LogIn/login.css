@@ -6,7 +6,6 @@
 }
 
 body {
-  background-image: url(img/background4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -17,7 +16,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   height: 100vh;
 }
 

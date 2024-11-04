@@ -2,23 +2,33 @@
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-size: 16px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 body {
-  background-image: url(LogIn/img/background4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
+.background-container {
+  position: fixed;
+  background-image: url("LogIn/img/background5.jpg");
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+}
+
 .main-content {
   margin: 2vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
+  align-items: flex-start;
+  justify-content: space-between; /* Adjusted to distribute space */
   height: 96vh;
 }
 
@@ -39,10 +49,98 @@ h3 {
   font-size: 2rem;
 }
 
+.clock-container {
+  text-align: center; 
+  margin: 20px 0;
+  font-size: 2.5rem; 
+  border-radius: 10px;
+}
+
+.goal-container {
+  text-align: center; 
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.left-side-items {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start;
+  margin-left: 50px;
+  width: 40%; /* Set a width for the left items */
+  padding: 20px; /* Add padding for aesthetics */
+  background-color: white;
+  border-radius: 20px;
+}
+
+.news-container {
+  flex: 1; /* Allow the news container to take up remaining space */
+  padding: 20px;
+  background-color: rgb(223, 245, 255); /* Background color of the news container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 20px; /* Rounded corners */
+  margin-left: 20px; /* Space between news container and the left-side items */
+  max-height: 30vh; /* Set a maximum height */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+
+.news-container h2 {
+  font-size: 24px; /* Title font size */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+.news-item {
+  margin-bottom: 15px; /* Space between news items */
+}
+
+.news-title {
+  font-size: 18px; /* News title font size */
+  font-weight: bold; /* Make the title bold */
+}
+
+.news-description {
+  font-size: 14px; /* Description font size */
+  color: #555; /* Description color */
+}
+
+/* Scrollbar styles for WebKit browsers (Chrome, Safari) */
+.news-container::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.news-container::-webkit-scrollbar-track {
+  background: black; /* Background of the scrollbar track */
+}
+
+.news-container::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.news-container::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; /* Color of the thumb on hover */
+}
+
+/* Scrollbar styles for Firefox */
+.news-container {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #333 rgb(255, 255, 255); /* Thumb color and track color */
+}
+
+.news-item img {
+  width: 100%; /* Make the image take the full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+
 input {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(0, 0, 0);
   width: 50%;
   height: 5%;
   font-size: 2.5rem;
@@ -67,7 +165,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .quote {
@@ -96,18 +194,16 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 20px;
-
   position: fixed;
-  left: 0%;
+  left: 0;
+  top: 50%; /* Start from the center vertically */
+  transform: translateY(-50%); /* Shift it up by half its height */
   width: 10%;
   opacity: 1;
 }
 
-#newsletters:hover {
-  cursor: pointer;
-}
 
+#newsletters:hover,
 #weathers:hover {
   cursor: pointer;
 }

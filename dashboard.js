@@ -56,6 +56,7 @@ setInterval(fetchBackgroundImage, 600000);
 setInterval(fetchWeatherBackground, 600000);
 
 let newsApiKey = "fddc7b6e07854521bf4ce374976c4f2d";
+
 async function fetchNews() {
   try {
     const response = await fetch(
@@ -77,11 +78,22 @@ async function fetchNews() {
 
 function displayNews(articles) {
   const newsContainer = document.getElementById("news-info");
-  newsContainer.innerHTML = "";
+  newsContainer.innerHTML = ""; // Clear previous news items
 
   articles.slice(0, 3).forEach((article) => {
     const newsItem = document.createElement("div");
     newsItem.classList.add("news-item");
+
+    // Create image element if urlToImage exists
+    if (article.urlToImage) {
+      const image = document.createElement("img");
+      image.classList.add("news-image");
+      image.src = article.urlToImage;
+      image.alt = article.title; // Alt text for accessibility
+      newsItem.appendChild(image);
+    } else {
+      console.warn("No image found for article:", article.title);
+    }
 
     const title = document.createElement("h3");
     title.classList.add("news-title");
@@ -105,10 +117,14 @@ function displayNews(articles) {
     newsContainer.appendChild(newsItem);
   });
 
-  newsContainer.scrollTop = 0;
+  newsContainer.scrollTop = 0; // Scroll to top after loading
 }
 
+// Call the function to fetch news when the script runs
 fetchNews();
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const quoteText = document.querySelector(".quote-text"),
