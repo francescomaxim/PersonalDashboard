@@ -16,7 +16,7 @@ const app = initializeApp(appSetting);
 const database = getDatabase(app);
 
 let pass;
-let myBoolean;
+let usernamee;
 
 export function createUser(userHash, username, password) {
   let passwordField = ref(database, `${userHash}/password`);
@@ -58,6 +58,23 @@ function getPass(userHash) {
       let password = Object.entries(snapshot.val());
       password.forEach((value) => {
         pass = value[1];
+      });
+    }
+  });
+}
+
+export function passing2(userHash) {
+  getPass2(userHash);
+  return usernamee;
+}
+
+function getPass2(userHash) {
+  let passwordPath = ref(database, `${userHash}/username`);
+  onValue(passwordPath, function (snapshot) {
+    if (snapshot.exists()) {
+      let password = Object.entries(snapshot.val());
+      password.forEach((value) => {
+        usernamee = value[1];
       });
     }
   });

@@ -55,12 +55,13 @@ myButton.addEventListener("click", () => {
           if (database.existing(userHash)) {
             let passing = database.passing(userHash);
             if (passing == myInput.value) {
-              goIn(passing);
+              goIn(passing, username);
             } else {
               wrongPass();
             }
           } else {
             database.createUser(userHash, username, myInput.value);
+            goIn(myInput.value, username);
           }
         }
       }
@@ -73,14 +74,15 @@ function wrongPass() {
   mySmall.style.color = "red";
 }
 
-function goIn(pass) {
-  saveLogInToLocalStorage(userHash, pass);
+function goIn(pass, username) {
+  saveLogInToLocalStorage(userHash, pass, username);
   window.location.href = "./../index.html";
 }
 
-function saveLogInToLocalStorage(user, pass) {
+function saveLogInToLocalStorage(user, pass, username) {
   localStorage.setItem("user", user);
   localStorage.setItem("pass", pass);
+  localStorage.setItem("username", username);
 }
 
 function validatePassword(user, password) {
