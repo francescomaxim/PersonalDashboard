@@ -1,272 +1,269 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    background: #f0f4f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #333;
+  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
 }
 
 .background-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.5s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
 }
-
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    grid-template-rows: 2fr 2fr 1fr 1fr; 
-    grid-template-areas: 
-        "weather weather weather events"
-        "weather weather weather events"
-        "currency quote news news" 
-        "currency quote news news"; 
-    gap: 0px 10px;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    height: 650px; 
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 2fr 2fr 1fr 1fr;
+  grid-template-areas:
+    "weather weather weather events"
+    "weather weather weather events"
+    "currency quote news news"
+    "currency quote news news";
+  gap: 0px 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  height: 650px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .weather {
-    grid-area: weather;
-    background-color: #e7f0ff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
+  grid-area: weather;
+  background-color: #e7f0ff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .events {
-    grid-area: events;
-    background-color: #c2d0dd;
-    padding: 20px;
-    border-radius: 10px;
+  grid-area: events;
+  background-color: #c2d0dd;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .currency {
-    grid-area: currency;
-    background-color: #cbd4e3;
-    padding: 20px;
-    border-radius: 10px;
-    max-height: 250px;
+  grid-area: currency;
+  background-color: #cbd4e3;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 250px;
 }
 
 #scrollingText {
-    font-size: 1em;
-    color: #333;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-    animation: scroll 10s linear infinite;
+  font-size: 1em;
+  color: #333;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: scroll 10s linear infinite;
 }
 
 @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .news {
-    grid-area: news;
-    background-color: #c2d0dd;
-    padding: 10px;
-    border-radius: 10px;
-    height: 250px; 
-    overflow-y: auto; 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    scrollbar-width: thin;
-    scrollbar-color: #000 transparent; 
+  grid-area: news;
+  background-color: #c2d0dd;
+  padding: 10px;
+  border-radius: 10px;
+  height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  scrollbar-width: thin;
+  scrollbar-color: #000 transparent;
 }
 
 .news-item {
-    padding: 10px;
-    height: 150px; 
-    overflow: hidden; 
+  padding: 10px;
+  height: 150px;
+  overflow: hidden;
 }
 
 .news::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 .news::-webkit-scrollbar-thumb {
-    background-color: #000; 
-    border-radius: 4px;
+  background-color: #000;
+  border-radius: 4px;
 }
 
-
 .news-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
 }
 
 .news-description {
-    font-size: 14px;
-    color: #555;
+  font-size: 14px;
+  color: #555;
 }
 
 .news-link {
-    font-size: 12px;
-    color: #007BFF;
-    text-decoration: none;
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: none;
 }
 
 .news-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-
 
 .card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    color: rgba(51, 47, 47, 0.779);
-    background-color: #d7e9f8;
-    font-size: 1.2em;
-    font-weight: bold;
-    transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgba(51, 47, 47, 0.779);
+  background-color: #d7e9f8;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: transform 0.3s ease;
 }
 
-
 section {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 h2 {
-    color: #1577d9;
-    margin-bottom: 10px;
+  color: #1577d9;
+  margin-bottom: 10px;
 }
 
-
 #event-list {
-    list-style: none;
-    margin-top: 10px;
+  list-style: none;
+  margin-top: 10px;
 }
 
 .add-event input {
-    padding: 8px;
-    width: 70%;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  padding: 8px;
+  width: 70%;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 button {
-    padding: 8px 12px;
-    background-color: #00509e;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 8px 12px;
+  background-color: #00509e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #003f7d;
+  background-color: #003f7d;
 }
 
 .card.news .news-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .news-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #007BFF;
-    margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 5px;
 }
 
 .news-description {
-    font-size: 14px;
-    color: #555;
+  font-size: 14px;
+  color: #555;
 }
 
 .news-link {
-    font-size: 12px;
-    color: #007BFF;
-    text-decoration: none;
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: none;
 }
 
 .news-link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .quote-section {
-    grid-area: quote;
-    background-color: #f7e6d4; 
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  grid-area: quote;
+  background-color: #f7e6d4;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .content .quote-area {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .quote-area .quote {
-    font-size: 20px;
-    text-align: center;
+  font-size: 20px;
+  text-align: center;
 }
 
 .quote-area i {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .quote-area i:first-child {
-    margin: 3px 10px 0 0;
+  margin: 3px 10px 0 0;
 }
 
 .quote-area i:last-child {
-    display: flex;
-    align-items: flex-end;
-    margin: 0 0 3px 10px;
+  display: flex;
+  align-items: flex-end;
+  margin: 0 0 3px 10px;
 }
 
 .content .author {
-    display: flex;
-    font-size: 13px;
-    font-style: italic;
-    margin-top: 20px;
-    justify-content: flex-end;
+  display: flex;
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 20px;
+  justify-content: flex-end;
 }
 
 .quote-button {
-    margin-top: 10px;
+  margin-top: 10px;
 }

@@ -56,6 +56,7 @@ setInterval(fetchBackgroundImage, 600000);
 setInterval(fetchWeatherBackground, 600000);
 
 let newsApiKey = "fddc7b6e07854521bf4ce374976c4f2d";
+
 async function fetchNews() {
   try {
     const response = await fetch(

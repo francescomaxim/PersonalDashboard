@@ -2,31 +2,126 @@
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-size: 16px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 body {
-  background-image: url(LogIn/img/background4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-.main-content {
-  margin: 2vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.background-container-1 {
+  position: fixed;
+  background-image: url("LogIn/img/background5.jpg");
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+}
 
+.main-content {
+  display: grid;
+  grid-template-areas:
+    "left news quote weather"
+    "left news quote weather"
+    "left news currency weather"
+    "left news currency weather";
+  grid-template-columns: 20% 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 2vh;
   height: 96vh;
+  margin-left: 70px;
+  overflow-y: hidden;
 }
 
 .main-content > * {
-  margin: 10px;
   text-align: center;
 }
 
+.left-side-items {
+  grid-area: left;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.news-container {
+  grid-area: news;
+  padding: 20px;
+  background-color: rgb(223, 245, 255);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow-y: auto;
+}
+
+.clock-container {
+  grid-area: clock;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.goal-container {
+  grid-area: goal;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.weather {
+  grid-area: weather;
+  background-color: #e7f0ff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.currency {
+  grid-area: currency;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 250px;
+}
+
+.quote-section {
+  grid-area: quote;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#event-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.add-event input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: 50%;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Typography */
 h1 {
   font-size: 8rem;
 }
@@ -39,12 +134,62 @@ h3 {
   font-size: 2rem;
 }
 
+/* News Styling */
+.news-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.news-item {
+  margin-bottom: 15px;
+}
+
+.news-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.news-description {
+  font-size: 14px;
+  color: #555;
+}
+
+.news-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Scrollbars */
+.news-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.news-container::-webkit-scrollbar-track {
+  background: black;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.news-container::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+.news-container {
+  scrollbar-width: thin;
+  scrollbar-color: #333 rgb(255, 255, 255);
+}
+
+/* Additional elements */
 input {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(0, 0, 0);
   width: 50%;
-  height: 5%;
   font-size: 2.5rem;
   text-align: center;
   padding: 10px;
@@ -52,10 +197,6 @@ input {
 
 input:focus {
   outline: none;
-}
-
-small {
-  font-size: 0.9rem;
 }
 
 button {
@@ -67,12 +208,12 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .quote {
   position: fixed;
-  bottom: 0%;
+  bottom: 0;
   width: 100%;
   opacity: 1;
 }
@@ -85,29 +226,22 @@ button:hover {
   height: 100%;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
 }
 
 .meniu {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
-  margin: 20px;
-
   position: fixed;
-  left: 0%;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 10%;
-  opacity: 1;
 }
 
-#newsletters:hover {
-  cursor: pointer;
-}
-
+#newsletters:hover,
 #weathers:hover {
   cursor: pointer;
 }

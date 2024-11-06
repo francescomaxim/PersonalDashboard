@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="Styles/todo.css" />
   </head>
   <body>
+    <div class="background-container-1"></div>
     <div class="main-content">
       <div class="meniu">
         <svg
@@ -63,6 +64,7 @@
           />
         </svg>
       </div>
+<!-- <<<<<<< HEAD
       <h1 id="myClock">11:30</h1>
       <h2 id="greeting"></h2>
       <h3>What is your main goal for today?</h3>
@@ -72,34 +74,69 @@
         <small id="mySmall"></small>
         <br />
         <small id="mySmall2"></small>
-      </div>
+      </div> -->
+<!-- ======= -->
+      
+      <div class="left-side-items">
+        <div class="clock-container">
+          <h2 id="myClock">11:30</h2>
+            <h2 id="greeting"></h2>
+            <h3>What is your main goal for today?</h3>
+            <input id="myInput" type="text" />
+            <div class="quote">
+                <small id="mySmall"></small>
+                <br />
+                <small id="mySmall2"></small>
+            </div>
+        </div>
+<!-- >>>>>>> dc1290a9336f3dbd8fb4bc3a620dccd4a7dde549 -->
     </div>
 
-    <div id="overlay1" onclick="off1()">
-      <section class="card news" id="news">
-        <h2 id="news-title">Top News</h2>
-        <div id="news-info">
-          <div class="news-item">
-            <p class="news-title" id="news-title-1">News Headline 1</p>
-            <p class="news-description" id="news-desc-1">
-              Brief description of news 1.
-            </p>
-          </div>
-          <div class="news-item">
-            <p class="news-title" id="news-title-2">News Headline 2</p>
-            <p class="news-description" id="news-desc-2">
-              Brief description of news 2.
-            </p>
-          </div>
-          <div class="news-item">
-            <p class="news-title" id="news-title-3">News Headline 3</p>
-            <p class="news-description" id="news-desc-3">
-              Brief description of news 3.
-            </p>
-          </div>
-        </div>
-      </section>
+   
+    <div class="news-container">
+      <h2>Latest News</h2>
+      <div id="news-info"></div> <!-- This will hold the news articles -->
+  </div>
+
+  <section class="card weather" id="weather">
+    <h2 id="weather-title">Weather</h2>
+    <div id="weather-info">
+        <p id="loading-weather">Loading weather...</p>
     </div>
+</section>
+
+<div class="card currency">
+  <h2 id="currency-title">Currency Exchange Rates</h2>
+  <div id="scrolling-text"></div>
+</div>
+
+<div class="card events" id="events">
+  <h3 id="events-title">To-Dos</h3>
+  <ul id="event-list"></ul>
+  <div class="add-event">
+      <input type="text" id="event-input" placeholder="Add a new to-do">
+      <button onclick="addEvent()" id="add-event-button">Add</button>
+  </div>
+</div>
+
+<div class="card quote-section" id="quote">
+  <h2 id="quote-title">Quote Of The Day</h2>
+  <div class="content">
+      <div class="quote-area">
+          <i class="fas fa-quote-left"></i>
+          <p class="quote-text" id="quote-text">Press button for your quote</p> 
+          <i class="fas fa-quote-right"></i>
+      </div>
+      <div class="author">
+          <span> - </span>
+          <span class="name" id="quote-author"></span>
+      </div>
+  </div>
+  <div class="quote-button">
+      <button onclick="randomQuote()" id="quote-button">New Quote</button>
+  </div>
+</div>
+
 
     <!-- <div class="mainweather" id="overlay2" onclick="off2()">
         <div class="searchdiv">
@@ -211,6 +248,10 @@
     <script src="script.js" type="module"></script>
     <script src="JsFiles/gettime.js" type="module"></script>
     <script src="API's/news.js"></script>
+<!-- <<<<<<< HEAD -->
     <script src="JsFiles/todos.js" type="module"></script>
+<!-- ======= -->
+    <script src="dashboard.js" type="module"></script>
+<!-- >>>>>>> dc1290a9336f3dbd8fb4bc3a620dccd4a7dde549 -->
   </body>
 </html>
