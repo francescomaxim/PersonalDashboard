@@ -11,7 +11,7 @@ body {
   background-position: center center;
 }
 
-.background-container {
+.background-container-1 {
   position: fixed;
   background-image: url("LogIn/img/background5.jpg");
   top: 0;
@@ -25,18 +25,108 @@ body {
 }
 
 .main-content {
-  margin: 2vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between; /* Adjusted to distribute space */
+  display: grid;
+  grid-template-areas:
+    "left news quote weather"
+    "left news quote weather"
+    "left news currency weather"
+    "left news currency weather";
+  grid-template-columns: 20% 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 2vh;
   height: 96vh;
+  margin-left: 70px;
+  overflow-y: hidden;
 }
 
 .main-content > * {
-  margin: 10px;
   text-align: center;
 }
 
+.left-side-items {
+  grid-area: left;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.news-container {
+  grid-area: news;
+  padding: 20px;
+  background-color: rgb(223, 245, 255);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow-y: auto;
+}
+
+.clock-container {
+  grid-area: clock;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.goal-container {
+  grid-area: goal;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.weather {
+  grid-area: weather;
+  background-color: #e7f0ff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.currency {
+  grid-area: currency;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 250px;
+}
+
+.quote-section {
+  grid-area: quote;
+  background-color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+#event-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.add-event input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: 50%;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+
+
+
+/* Typography */
 h1 {
   font-size: 8rem;
 }
@@ -49,100 +139,62 @@ h3 {
   font-size: 2rem;
 }
 
-.clock-container {
-  text-align: center; 
-  margin: 20px 0;
-  font-size: 2.5rem; 
-  border-radius: 10px;
-}
-
-.goal-container {
-  text-align: center; 
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.left-side-items {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  justify-content: flex-start;
-  margin-left: 50px;
-  width: 40%; /* Set a width for the left items */
-  padding: 20px; /* Add padding for aesthetics */
-  background-color: white;
-  border-radius: 20px;
-}
-
-.news-container {
-  flex: 1; /* Allow the news container to take up remaining space */
-  padding: 20px;
-  background-color: rgb(223, 245, 255); /* Background color of the news container */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border-radius: 20px; /* Rounded corners */
-  margin-left: 20px; /* Space between news container and the left-side items */
-  max-height: 30vh; /* Set a maximum height */
-  overflow-y: auto; /* Allow vertical scrolling */
-}
-
-
+/* News Styling */
 .news-container h2 {
-  font-size: 24px; /* Title font size */
-  margin-bottom: 10px; /* Space below the title */
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .news-item {
-  margin-bottom: 15px; /* Space between news items */
+  margin-bottom: 15px;
 }
 
 .news-title {
-  font-size: 18px; /* News title font size */
-  font-weight: bold; /* Make the title bold */
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .news-description {
-  font-size: 14px; /* Description font size */
-  color: #555; /* Description color */
-}
-
-/* Scrollbar styles for WebKit browsers (Chrome, Safari) */
-.news-container::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
-
-.news-container::-webkit-scrollbar-track {
-  background: black; /* Background of the scrollbar track */
-}
-
-.news-container::-webkit-scrollbar-thumb {
-  background: #ffffff; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
-}
-
-.news-container::-webkit-scrollbar-thumb:hover {
-  background: #ffffff; /* Color of the thumb on hover */
-}
-
-/* Scrollbar styles for Firefox */
-.news-container {
-  scrollbar-width: thin; /* Makes the scrollbar thinner */
-  scrollbar-color: #333 rgb(255, 255, 255); /* Thumb color and track color */
+  font-size: 14px;
+  color: #555;
 }
 
 .news-item img {
-  width: 100%; /* Make the image take the full width of the container */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Rounded corners */
-  margin-bottom: 10px; /* Space between image and text */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
+/* Scrollbars */
+.news-container::-webkit-scrollbar {
+  width: 12px;
+}
 
+.news-container::-webkit-scrollbar-track {
+  background: black;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.news-container::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+.news-container {
+  scrollbar-width: thin;
+  scrollbar-color: #333 rgb(255, 255, 255);
+}
+
+/* Additional elements */
 input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid rgb(0, 0, 0);
   width: 50%;
-  height: 5%;
   font-size: 2.5rem;
   text-align: center;
   padding: 10px;
@@ -150,10 +202,6 @@ input {
 
 input:focus {
   outline: none;
-}
-
-small {
-  font-size: 0.9rem;
 }
 
 button {
@@ -170,7 +218,7 @@ button:hover {
 
 .quote {
   position: fixed;
-  bottom: 0%;
+  bottom: 0;
   width: 100%;
   opacity: 1;
 }
@@ -183,25 +231,20 @@ button:hover {
   height: 100%;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
 }
 
 .meniu {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
   position: fixed;
-  left: 0;
-  top: 50%; /* Start from the center vertically */
-  transform: translateY(-50%); /* Shift it up by half its height */
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 10%;
-  opacity: 1;
 }
-
 
 #newsletters:hover,
 #weathers:hover {
