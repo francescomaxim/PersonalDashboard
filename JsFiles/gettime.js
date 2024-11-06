@@ -2,12 +2,16 @@ const myClock = document.getElementById("myClock");
 let myText;
 
 // Apelarea funcției
-getLocalTime()
-  .then((time) => {
-    updateGreeting();
-    myClock.textContent = time;
-  })
-  .catch((error) => console.error(error));
+setInterval(setting, 1000);
+
+function setting() {
+  getLocalTime()
+    .then((time) => {
+      updateGreeting();
+      myClock.textContent = time;
+    })
+    .catch((error) => console.error(error));
+}
 
 function getLocalTime() {
   return new Promise((resolve, reject) => {

@@ -1,0 +1,24 @@
+ul {
+  width: 40%;
+
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+ul li {
+  height: 25px;
+  padding: 10px;
+  flex-grow: 1;
+
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+
+  text-align: center;
+}
+
+ul li:hover {
+  border-color: pink;
+  cursor: pointer;
+}

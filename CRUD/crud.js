@@ -17,6 +17,7 @@ const database = getDatabase(app);
 
 let pass;
 let usernamee;
+let myArray;
 
 export function createUser(userHash, username, password) {
   let passwordField = ref(database, `${userHash}/password`);
@@ -79,3 +80,22 @@ function getPass2(userHash) {
     }
   });
 }
+
+export function addToList(userHash, item) {
+  let toDoListPath = ref(database, `${userHash}/ToDoList`);
+  push(toDoListPath, item);
+}
+
+export function getList(userHash) {
+  let toDoListPath = ref(database, `${userHash}/ToDoList`);
+  onValue(toDoListPath, function (snapshot) {
+    if (snapshot.exists()) {
+      let myArray = Object.entries(snapshot.val());
+      myArray.forEach((value) => {
+        console.log(value);
+      });
+    }
+  });
+}
+
+export function saveToArray(array) {}
