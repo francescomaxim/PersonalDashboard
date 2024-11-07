@@ -1,21 +1,23 @@
-let unsplashAccessKey = "L311R-ah5T6Yucd_45Wys-2zL0bHjA8FLd3BYjxq1ao";
+let unsplashAccessKey = "AIQlG_hdpej20iq4XeXNBr-vCzeMjcPWrlQsgAWpsw8";
+const quoteCard = document.getElementById("quote");
 
-function fetchWeatherBackground() {
+function fetchBackground() {
   fetch(
-    `https://api.unsplash.com/photos/random?query=weather&orientation=landscape&client_id=${unsplashAccessKey}`
+    `https://api.unsplash.com/photos/random?query=nature&orientation=landscape&client_id=${unsplashAccessKey}`
   )
     .then((response) => response.json())
     .then((data) => {
-      const backgroundContainer = document.getElementById("main");
+      const weatherCard = document.querySelector(".weather");
       if (data && data.urls && data.urls.regular) {
-        console.log("sunt aici");
-        backgroundContainer.style.backgroundImage = `url(${data.urls.regular})`;
-        backgroundContainer.style.backgroundSize = "cover";
-        backgroundContainer.style.backgroundPosition = "center";
-        backgroundContainer.style.color = "#fff";
+        quoteCard.style.backgroundImage = `url(${data.urls.regular})`;
+        quoteCard.style.backgroundSize = "cover";
+        quoteCard.style.backgroundPosition = "center";
+        quoteCard.style.color = "#fff";
       }
     })
     .catch((error) => console.error("Error fetching background image:", error));
 }
 
-//fetchWeatherBackground();
+fetchBackground();
+
+setInterval(fetchBackground, 600000);

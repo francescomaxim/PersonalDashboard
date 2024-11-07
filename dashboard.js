@@ -12,29 +12,6 @@ function addEvent() {
   }
 }
 
-let unsplashAccessKey = "AIQlG_hdpej20iq4XeXNBr-vCzeMjcPWrlQsgAWpsw8";
-
-function fetchWeatherBackground() {
-  fetch(
-    `https://api.unsplash.com/photos/random?query=weather&orientation=landscape&client_id=${unsplashAccessKey}`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      const weatherCard = document.querySelector(".weather");
-      if (data && data.urls && data.urls.regular) {
-        weatherCard.style.backgroundImage = `url(${data.urls.regular})`;
-        weatherCard.style.backgroundSize = "cover";
-        weatherCard.style.backgroundPosition = "center";
-        weatherCard.style.color = "#fff";
-      }
-    })
-    .catch((error) => console.error("Error fetching background image:", error));
-}
-
-fetchWeatherBackground();
-
-setInterval(fetchWeatherBackground, 600000);
-
 let newsApiKey = "fddc7b6e07854521bf4ce374976c4f2d";
 
 async function fetchNews() {
