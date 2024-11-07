@@ -19,63 +19,6 @@
   <body>
     <div class="background-container-1"></div>
     <div class="main-content">
-      <div class="meniu">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          fill="currentColor"
-          class="bi bi-currency-dollar"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          fill="currentColor"
-          class="bi bi-cloud-drizzle-fill"
-          viewBox="0 0 16 16"
-          onclick="on2()"
-          id="weathers"
-        >
-          <path
-            d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317m6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317m-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317m6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317m.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
-          fill="currentColor"
-          class="bi bi-newspaper"
-          viewBox="0 0 16 16"
-          onclick="on1()"
-          id="newsletters"
-        >
-          <path
-            d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z"
-          />
-          <path
-            d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z"
-          />
-        </svg>
-      </div>
-<!-- <<<<<<< HEAD
-      <h1 id="myClock">11:30</h1>
-      <h2 id="greeting"></h2>
-      <h3>What is your main goal for today?</h3>
-      <input id="myInput" type="text" />
-      <ul id="myList"></ul>
-      <div class="quote">
-        <small id="mySmall"></small>
-        <br />
-        <small id="mySmall2"></small>
-      </div> -->
-<!-- ======= -->
       
       <div class="left-side-items">
         <div class="clock-container">
@@ -83,175 +26,50 @@
             <h2 id="greeting"></h2>
             <h3>What is your main goal for today?</h3>
             <input id="myInput" type="text" />
-            <div class="quote">
-                <small id="mySmall"></small>
-                <br />
-                <small id="mySmall2"></small>
-            </div>
         </div>
-<!-- >>>>>>> dc1290a9336f3dbd8fb4bc3a620dccd4a7dde549 -->
     </div>
 
    
     <div class="news-container">
       <h2>Latest News</h2>
       <div id="news-info"></div> <!-- This will hold the news articles -->
-  </div>
+    </div>
 
   <section class="card weather" id="weather">
     <h2 id="weather-title">Weather</h2>
     <div id="weather-info">
         <p id="loading-weather">Loading weather...</p>
     </div>
-</section>
+  </section>
 
-<div class="card currency">
-  <h2 id="currency-title">Currency Exchange Rates</h2>
-  <div id="scrolling-text"></div>
-</div>
-
-<div class="card events" id="events">
-  <h3 id="events-title">To-Dos</h3>
-  <ul id="event-list"></ul>
-  <div class="add-event">
-      <input type="text" id="event-input" placeholder="Add a new to-do">
-      <button onclick="addEvent()" id="add-event-button">Add</button>
+  <div class="card currency">
+    <h2 id="currency-title">Currency Exchange Rates</h2>
+    <div id="scrolling-text"></div>
   </div>
-</div>
 
-<div class="card quote-section" id="quote">
-  <h2 id="quote-title">Quote Of The Day</h2>
-  <div class="content">
-      <div class="quote-area">
-          <i class="fas fa-quote-left"></i>
-          <p class="quote-text" id="quote-text">Press button for your quote</p> 
-          <i class="fas fa-quote-right"></i>
-      </div>
-      <div class="author">
-          <span> - </span>
-          <span class="name" id="quote-author"></span>
-      </div>
-  </div>
-  <div class="quote-button">
-      <button onclick="randomQuote()" id="quote-button">New Quote</button>
-  </div>
-</div>
-
-
-    <!-- <div class="mainweather" id="overlay2" onclick="off2()">
-        <div class="searchdiv">
-            <input id="searchcity" placeholder="Search For City">
-            <button id="search">
-                <span class="material-symbols-outlined">query_stats</span>
-            </button>
+  <div class="card quote-section" id="quote">
+    <h2 id="quote-title">Quote Of The Day</h2>
+    <div class="content">
+        <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote-text" id="mySmall">Press button for your quote</p> 
+            <i class="fas fa-quote-right"></i>
         </div>
-
-        <div class="searching aclass">
-            <img class="searchingImg" src="assets/message/search-city.png">
-             <div>
-                <h1>Search City</h1>
-                <h4 class="regular-text">Find out the weather condition of the city</h4>
-             </div>
-        </div>
-
-        <div class="searching bclass" style="display: none;">
-            <img class="searchingImg" src="assets/message/not-found.png">
-             <div>
-                <h1>Not found</h1>
-                <h4 class="regular-text">Find out the weather condition of the city</h4>
-             </div>
-        </div>
-        
-        <div class="bigcontainer" style="display: none;">
-        <div class="info">
-            <div class="infoall">
-                <div class="location">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                    </svg>
-                    <h1>Cluj-Napoca</h1>
-                </div>
-                <h2 id="currentD">Wed, 07 Aug</h2>
-            </div>
-        </div>
-
-        <div class="middle">
-            <div class="weather">
-                <img src="assets/weather/clouds.svg" id="mainImg">
-                <div class="summary">
-                    <h1>29°C</h1>
-                    <h2>Clouds</h2>
-                </div>
-            </div>  
-        </div>
-
-        <div class="infos">
-            <div class="humidity">
-                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-droplet-half iconn" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
-                    <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z"/>
-                </svg>
-                <div>
-                    <h3>Humidity<br>55%</h3>
-                </div>
-            </div>
-            <div class="humidity">
-                <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-wind iconn" viewBox="0 0 16 16">
-                    <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5m-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2M0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5"/>
-                  </svg>
-                <div>
-                    <h3 id="windspeed">Wind Speed<br>2 M/s</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="forecastcontainer">
-            <div class="forecastitem">
-                <h3>08 Aug | 29 °C</h5>
-                <img src="assets/weather/thunderstorm.svg">
-            </div>
-            <div class="forecastitem">
-                <h3>08 Aug | 29 °C</h5>
-                <img src="assets/weather/thunderstorm.svg">
-            </div>
-            <div class="forecastitem">
-                <h3>08 Aug | 29 °C</h5>
-                <img src="assets/weather/thunderstorm.svg">
-            </div>
-            <div class="forecastitem">
-                <h3>08 Aug | 29 °C</h5>
-                <img src="assets/weather/thunderstorm.svg">
-            </div>
+        <div class="author">
+            <span> - </span>
+            <span class="name" id="mySmall2"></span>
         </div>
     </div>
-
-    </div> -->
-
-    <script>
-      function on1() {
-        document.getElementById("overlay1").style.display = "block";
-      }
-      function on2() {
-        document.getElementById("overlay2").style.display = "block";
-      }
-      function off1() {
-        document.getElementById("overlay1").style.display = "none";
-      }
-      function off2() {
-        document.getElementById("overlay2").style.display = "none";
-      }
-    </script>
-
-    <script src="LogIn/verifyLogIn.js" type="module"></script>
-    <script src="API's/quote.js" type="module"></script>
-    <script src="script.js" type="module"></script>
-    <script src="JsFiles/gettime.js" type="module"></script>
-    <script src="API's/news.js"></script>
-<!-- <<<<<<< HEAD -->
-    <script src="JsFiles/todos.js" type="module"></script>
-<!-- ======= -->
-    <script src="dashboard.js" type="module"></script>
-<!-- >>>>>>> dc1290a9336f3dbd8fb4bc3a620dccd4a7dde549 -->
-  </body>
+    <div class="quote-button">
+        <button id="quote-button">New Quote</button>
+    </div>
+  </div>
+      <script src="LogIn/verifyLogIn.js" type="module"></script>
+      <script src="API's/quote.js" type="module"></script>
+      <script src="script.js" type="module"></script>
+      <script src="JsFiles/gettime.js" type="module"></script>
+      <script src="API's/news.js"></script>
+      <script src="JsFiles/todos.js" type="module"></script>
+      <script src="dashboard.js" type="module"></script>
+</body>
 </html>

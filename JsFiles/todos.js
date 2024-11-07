@@ -10,15 +10,6 @@ myInput.addEventListener("keypress", function (event) {
   }
 });
 
-function addToList(value) {
-  let myUser = window.localStorage.getItem("user");
-  let myElement = document.createElement("li");
-  myElement.textContent = `${value}`;
-  myList.append(myElement);
-  database.addToList(myUser, value);
-  database.getList(myUser);
-}
-
 function clearingInput() {
   myInput.value = "";
 }
