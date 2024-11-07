@@ -78,7 +78,7 @@ body {
 
 .weather {
   grid-area: weather;
-  background-color: #e7f0ff;
+  background-image: url(assets/bg.jpg);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -93,9 +93,14 @@ body {
   padding: 20px;
   border-radius: 10px;
   max-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .currency > * {
+  font-size: 1.3rem;
   color: white;
 }
 

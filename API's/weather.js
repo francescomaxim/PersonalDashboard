@@ -13,39 +13,11 @@ const mainImg = document.getElementById("mainImg");
 const date = document.getElementById("currentD");
 const nextWeathers = document.querySelector(".forecastcontainer");
 
-myButton.addEventListener("click", () => {
-  if (myInput.value.trim() != "") {
-    weather(myInput.value);
-    myInput.value = "";
-    myInput.blur();
-  }
-});
-
-myButton.addEventListener("keydown", (event) => {
-  if (event.key == "Enter") {
-    if (myInput.value.trim() != "") {
-      weather(myInput.value);
-      myInput.value = "";
-      myInput.blur();
-    }
-  }
-});
-
-function showDisplayContainer(container) {
-  [searchingContainer, notFoundContainer, bigContainer].forEach(
-    (container) => (container.style.display = "none")
-  );
-  container.style.display = "block";
-}
+const myBuffer = "Cluj-Napoca";
+weather(myBuffer);
 
 async function weather(city) {
   const data = await getFetchData("weather", city);
-  if (data.cod != 200) {
-    showDisplayContainer(notFoundContainer);
-    return;
-  }
-
-  showDisplayContainer(bigContainer);
 
   const {
     name: country,
