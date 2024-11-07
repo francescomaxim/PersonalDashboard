@@ -89,10 +89,14 @@ body {
 
 .currency {
   grid-area: currency;
-  background-color: #ffffff;
+  background-image: url(assets/stocks.jpg);
   padding: 20px;
   border-radius: 10px;
   max-height: 250px;
+}
+
+.currency > * {
+  color: white;
 }
 
 .quote-section {
