@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  overflow-y: hidden;
 }
 
 .background-container-1 {
@@ -29,15 +30,13 @@ body {
   grid-template-areas:
     "left news quote weather"
     "left news quote weather"
-    "left news currency weather"
-    "left news currency weather";
+    "left news quote weather"
+    "left currency currency currency";
   grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
   grid-template-rows: 50% 1fr 1fr;
   gap: 20px;
   padding: 2vh;
   height: 96vh;
-  margin-left: 70px;
-  overflow-y: hidden;
 }
 
 .main-content > * {
@@ -47,14 +46,15 @@ body {
 .left-side-items {
   grid-area: left;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
 
 .news-container {
   grid-area: news;
   padding: 20px;
-  background-color: rgb(223, 245, 255);
+  background-color: rgba(223, 245, 255, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   overflow-y: auto;
@@ -65,7 +65,7 @@ body {
   padding: 20px;
   text-align: center;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: #ffffff00;
 }
 
 .goal-container {
@@ -78,7 +78,6 @@ body {
 
 .weather {
   grid-area: weather;
-  background-image: url(assets/bg.jpg);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -89,7 +88,6 @@ body {
 
 .currency {
   grid-area: currency;
-  background-image: url(assets/stocks.jpg);
   padding: 20px;
   border-radius: 10px;
   max-height: 250px;
@@ -97,22 +95,22 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .currency > * {
   font-size: 1.3rem;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .quote-section {
   grid-area: quote;
-  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
 }
 
 #event-list {
