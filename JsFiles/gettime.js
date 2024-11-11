@@ -40,7 +40,6 @@ function getLocalTime() {
         const localTime = new Intl.DateTimeFormat("ro-RO", options).format(
           currentDate
         );
-        console.log(currentDate.getHours());
         if (0 <= currentDate.getHours()) {
           myText = "Good morning";
         }

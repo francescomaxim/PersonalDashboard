@@ -41,7 +41,7 @@ class ApiControl {
   async callApis() {
     let responses = await this.getData();
     let actualResponses = await this.getResponses(responses);
-    //updateQuote(actualResponses[0].response, actualResponses[0].data);
+    updateQuote(actualResponses[0].response, actualResponses[0].data);
     fetchNews(actualResponses[1].response, actualResponses[1].data);
     //fetchBackground(actualResponses[2].response, actualResponses[2].data);
   }
