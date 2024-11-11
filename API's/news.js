@@ -1,11 +1,5 @@
-let newsApiKey = "fddc7b6e07854521bf4ce374976c4f2d";
-async function fetchNews() {
+export async function fetchNews(response, data) {
   try {
-    const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsApiKey}`
-    );
-    const data = await response.json();
-
     if (data.status === "ok" && data.articles) {
       displayNews(data.articles);
     } else {
@@ -50,5 +44,3 @@ function displayNews(articles) {
 
   newsContainer.scrollTop = 0;
 }
-
-fetchNews();

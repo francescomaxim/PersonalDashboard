@@ -1,0 +1,20 @@
+[
+    {
+        "id": "quote",
+        "url": "https://api.quotable.io/random"
+    },
+
+    {
+        "id": "news",
+        "url": "https://newsapi.org/v2/top-headlines?country=us&apiKey=",
+        "apiKey": "fddc7b6e07854521bf4ce374976c4f2d"
+    },
+
+    {
+        "id": "background",
+        "url": "https://api.unsplash.com/photos/random?query=nature&orientation=landscape&client_id=",
+        "apiKey": "AIQlG_hdpej20iq4XeXNBr-vCzeMjcPWrlQsgAWpsw8"
+    }
+
+
+]
