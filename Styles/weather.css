@@ -34,6 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
   flex-direction: column;
 }
 
@@ -45,9 +46,11 @@
 
 .middle .weather {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  background-color: rgba(49, 45, 45, 0);
 }
 
 .humidity {
@@ -58,22 +61,26 @@
 
 .middle {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .infos {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .forecastcontainer {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  gap: 20px;
+  overflow: hidden; 
+  scroll-behavior: smooth; 
+}
 
-  overflow: scroll;
-  padding-bottom: 10px;
+.forecastitem {
+  min-width: 130px;
+  flex: 0 0 auto; 
 }
 
 .forecastcontainer::-webkit-scrollbar-track {
