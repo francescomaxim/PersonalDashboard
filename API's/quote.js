@@ -4,10 +4,7 @@ const myButton = document.getElementById("quote-button");
 
 myButton.addEventListener("click", () => updateQuote());
 
-async function updateQuote() {
-  // Fetch a random quote from the Quotable API
-  const response = await fetch("https://api.quotable.io/random");
-  const data = await response.json();
+export async function updateQuote(response, data) {
   if (response.ok) {
     quote.textContent = data.content;
     author.textContent = data.author;
@@ -15,5 +12,3 @@ async function updateQuote() {
     quote.textContent = "An error occured";
   }
 }
-
-updateQuote();
