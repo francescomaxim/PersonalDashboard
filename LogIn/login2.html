@@ -17,17 +17,14 @@
   <body>
     <div class="background-container"></div>
     <div class="main-content">
-      <h1 id="myHeader">Hello! What's your name?</h1>
-      <input id="myInput" type="text" />
-      <small id="mySmall" style="color: rgb(0, 0, 0)"
-        >Please enter your first name or the name you prefer to be called</small
-      >
+      <h1 id="myHeader">Sign In</h1>
+      <input id="myInput" type="text" placeholder="Email" />
+      <input id="myInput2" type="password" placeholder="Password" />
+      <small id="mySmall" style="color: rgb(0, 0, 0)"></small>
       <button id="myButton">Continue ></button>
-      <button id="myButton2">Already Have Account?</button>
     </div>
 
     <script src="../Firebase/firebase.js" type="module" defer></script>
-    <script src="../Firebase/auth.js" type="module" defer></script>
-    <script src="../Firebase/database.js" type="module" defer></script>
+    <script src="../Firebase/signin.js" type="module" defer></script>
   </body>
 </html>

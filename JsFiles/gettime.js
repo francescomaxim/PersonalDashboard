@@ -1,3 +1,5 @@
+import { user } from "../Firebase/database.js";
+
 const myClock = document.getElementById("myClock");
 let myText;
 
@@ -7,7 +9,7 @@ setInterval(setting, 1000);
 function setting() {
   getLocalTime()
     .then((time) => {
-      updateGreeting();
+      updateGreeting(user);
       myClock.textContent = time;
     })
     .catch((error) => console.error(error));
@@ -63,7 +65,6 @@ import * as database from "../CRUD/crud.js";
 
 let greeting = document.getElementById("greeting");
 
-function updateGreeting() {
-  greeting.textContent =
-    myText + ", " + window.localStorage.getItem("username") + ".";
+export function updateGreeting(user) {
+  greeting.textContent = myText + ", " + user;
 }
