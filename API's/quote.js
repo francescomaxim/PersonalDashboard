@@ -1,8 +1,8 @@
 const quote = document.getElementById("mySmall");
 const author = document.getElementById("mySmall2");
-const myButton = document.getElementById("quote-button");
+// const myButton = document.getElementById("quote-button");
 
-myButton.addEventListener("click", () => updateQuote());
+// myButton.addEventListener("click", () => updateQuote());
 
 export async function updateQuote(response, data) {
   if (response.ok) {

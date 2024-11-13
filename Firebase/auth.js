@@ -62,10 +62,7 @@ myButton.addEventListener("click", () => {
                 localStorage.setItem("myuseruid", user.uid);
               }, 2000);
             })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-            });
+            .catch((error) => {});
         }
       }
     }
